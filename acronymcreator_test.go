@@ -16,5 +16,8 @@ func TestCreator_CreateAcronyms(t *testing.T) {
 
 		acronyms := creator.CreateAcronyms()
 		So(len(acronyms) > 0, ShouldBeTrue)
+		So(len(acronyms["ac"]), ShouldEqual, 1)
+		So(len(creator.getCombinations()), ShouldEqual, 1)
+		So(acronyms["ac"][0].Combination, ShouldResemble, []string{"acronym", "creator"})
 	})
 }
