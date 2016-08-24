@@ -14,7 +14,8 @@ func TestCreator_CreateAcronyms(t *testing.T) {
 		}
 		creator := New(columns)
 
-		acronyms := creator.CreateAcronyms()
+		acronyms, err := creator.CreateAcronyms()
+		So(err, ShouldBeNil)
 		So(len(acronyms) > 0, ShouldBeTrue)
 		So(len(acronyms["ac"]), ShouldEqual, 1)
 		So(len(creator.getCombinations()), ShouldEqual, 1)
